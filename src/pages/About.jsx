@@ -51,9 +51,20 @@ function About() {
               <h3 className="w-36 text-center">CSS</h3>
               <ul className="text-xl ml-4">
                 <li className="font-bold text-primary-blue">Tailwindcss</li>
-                <li>Bootstrap</li>
-                <li>SASS</li>
+                <li className="inline mr-4">Bootstrap</li>
+                <li className="inline">SASS</li>
               </ul>
+            </li>
+            <li className="flex items-center border border-primary-blue py-2">
+              <h3 className="w-36 text-center">JavaScript</h3>
+              <ul className="text-xl ml-4">
+                <li className="font-bold text-primary-blue">React</li>
+                <li className="inline mr-4">Vue</li>
+                <li className="inline">jQuery</li>
+              </ul>
+            </li>
+            <li className="border border-primary-blue py-2">
+              <h3 className="w-36 text-center">npm</h3>
             </li>
             <li className="flex items-center border border-primary-blue py-2">
               <h3 className="w-36 text-center">Webpack</h3>
@@ -62,9 +73,7 @@ function About() {
                 <li>Gulp</li>
               </ul>
             </li>
-            <li className="border border-primary-blue py-2">
-              <h3 className="w-36 text-center">npm</h3>
-            </li>
+
             <li className="border border-primary-blue py-2">
               <h3 className="w-36 text-center">Git</h3>
             </li>

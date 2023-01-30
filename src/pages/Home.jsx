@@ -1,39 +1,86 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { TextPlugin } from "gsap/TextPlugin";
+
 import { useEffect, useRef } from "react";
 
 import { ReactComponent as Logo } from "../assets/logo.svg";
 import { ReactComponent as ArrowRight } from "../assets/ArrowRight.svg";
 
+gsap.registerPlugin(ScrollTrigger, TextPlugin);
+
 function Home() {
-  const scroll = useRef();
+  const home = useRef(null);
+  const slogan = "Graphic Design & Front End Website Creator. ";
 
   useEffect(() => {
-    gsap.to(scroll.current, {
-      keyframes: [{ y: 20 }, { y: 0 }],
-      duration: 1.5,
-      repeat: -1,
-    });
+    let ctx = gsap.context(() => {
+      let tl = gsap.timeline();
+
+      tl.from("#title", {
+        y: 20,
+        duration: 1.5,
+        opacity: 0,
+        ease: "Power2.out",
+        delay: 0.5,
+      })
+        .to("#cursor", {
+          opacity: 0.6,
+          yoyo: true,
+          repeat: -1,
+          duration: 0.7,
+        })
+        .to("#slogan", {
+          text: slogan,
+          duration: 4,
+          delay: 0.7,
+        })
+        .to("#scroll", {
+          opacity: 1,
+          duration: 1.5,
+          ease: "Power2.easeInOut",
+        });
+
+      // Scroll down tag
+      gsap.to("#scroll", {
+        y: 20,
+        yoyo: true,
+        duration: 1,
+        repeat: -1,
+      });
+    }, home);
+
+    return () => {
+      ctx.revert();
+    };
   }, []);
 
   return (
     <>
-      <div className="absolute left-n20vw w-screen h-screen flex flex-col justify-center items-center text-white">
+      <div
+        ref={home}
+        className="absolute left-n20vw w-screen h-screen flex flex-col justify-center items-center text-white"
+      >
         <div>
-          <h1>
+          <h1 id="title">
             <Logo width={400} />
           </h1>
           <br />
-          <p className="text-left animate-text-shimmer bg-clip-text text-transparent bg-[linear-gradient(110deg,#e2e8f0,45%,#1e293b,55%,#e2e8f0)] bg-[length:250%_100%]">
-            Graphic Design &
-            <br />
-            Front End Website
-            <br />
-            Creator
-          </p>
+          <div className="w-40 h-20 wrap">
+            <p>
+              <span id="slogan" className="tracking-wider opacity-60"></span>
+              <span id="cursor" className="opacity-0 font-bold">
+                _
+              </span>
+            </p>
+          </div>
         </div>
 
-        <div className="absolute right-0 bottom-20 flex rotate-90" ref={scroll}>
+        <div
+          id="scroll"
+          className="absolute right-0 bottom-20 flex rotate-90 opacity-0"
+        >
           <p className="mr-2">scroll down</p>
           <ArrowRight width={8} />
         </div>
