@@ -1,7 +1,10 @@
 /* eslint-disable react/react-in-jsx-scope */
 import PropTypes from "prop-types";
+import { useRef } from "react";
 
 function Pagination({ showWorks, setCurrentPage }) {
+  const clicked = useRef(false);
+
   const nextPage = () => {
     setCurrentPage((prev) => {
       if (prev === showWorks.length) {
@@ -22,12 +25,24 @@ function Pagination({ showWorks, setCurrentPage }) {
     });
   };
 
-  document.addEventListener("keyup", (e) => {
+  document.addEventListener("keydown", (e) => {
+    if (clicked.current === true) {
+      return;
+    }
+
+    console.log("t");
+
     if (e.key === "Right" || e.key === "ArrowRight") {
       nextPage();
     } else if (e.key === "Left" || e.key === "ArrowLeft") {
       prevPage();
     }
+
+    clicked.current = true;
+
+    setTimeout(() => {
+      clicked.current = false;
+    }, 0);
   });
 
   return (
