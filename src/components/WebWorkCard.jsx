@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 
 function WebWorkCard({
-  work: { name, imgCover, imgContent, skills, infoUrl },
+  work: { name, imgCover, imgContent, skills, infoUrl, describe },
 }) {
   const [showModal, setShowModal] = useState(false);
 
@@ -22,14 +22,13 @@ function WebWorkCard({
       {/* Small Card */}
       <button
         type="button"
-        className="w-120 h-40 border flex"
+        className="w-120 h-40 border border-slate-500 rounded-md overflow-hidden flex"
         onClick={() => setShowModal(true)}
       >
-        <img src={imgCover} className="w-40 h-40 shrink-0 border" alt="cover" />
-        <div className="px-6 py-8 text-left">
-          <h2 className="text-xl">{name}</h2>
-          <br />
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <img src={imgCover} className="w-40 h-40 shrink-0" alt="cover" />
+        <div className="px-6 pt-10 text-left">
+          <h2 className="text-xl mb-2">{name}</h2>
+          <p className="text-sm text-gray-400">{describe}</p>
         </div>
       </button>
 
@@ -42,7 +41,7 @@ function WebWorkCard({
             id="modalBackground"
           >
             {/* Modal Content */}
-            <div className="relative top-0 w-2/3 max-h-4/5 bg-white z-10 p-8 grid grid-cols-2 gap-6">
+            <div className="relative top-0 w-2/3 max-h-4/5 rounded-sm bg-white z-10 p-8 grid grid-cols-2 gap-6">
               {/* close Icon */}
               <button
                 className="absolute top-4 right-4 bg-primary-black hover:cursor-pointer hover:rotate-90 duration-500"
@@ -53,7 +52,7 @@ function WebWorkCard({
 
               {/* Img Area */}
               <div className="flex justify-center items-center">
-                <img src={imgContent[0]} alt={name} />
+                <img src={imgContent} alt={name} />
               </div>
 
               {/* Info Area */}
@@ -61,11 +60,12 @@ function WebWorkCard({
                 {/* Info */}
                 <div className="mb-12">
                   <h2 className="text-4xl text-primary-blue">{name}</h2>
-                  <p className="mb-8">Lorem ipsum dolor sit amet.</p>
+                  <p className="mb-8">{describe}</p>
+                  <h3 className="text-2xl text-primary-blue">Techniques</h3>
                   <ul>
                     {skills.map((skill, index) => (
                       <li key={index} className="flex items-center mb-1">
-                        <div className="w-3 h-3 bg-primary-blue mr-2"></div>
+                        <div className="w-2 h-2 bg-primary-blue mr-2"></div>
                         <p className="text-lg">{skill}</p>
                       </li>
                     ))}
@@ -74,7 +74,7 @@ function WebWorkCard({
 
                 {/* Link */}
                 <ul className="flex justify-end">
-                  {infoUrl.Website && (
+                  {infoUrl.website && (
                     <li>
                       <a
                         href={infoUrl.Website}
@@ -87,7 +87,7 @@ function WebWorkCard({
                       </a>
                     </li>
                   )}
-                  {infoUrl.Github_Repo && (
+                  {infoUrl.github && (
                     <li>
                       <a
                         href={infoUrl.Github_Repo}

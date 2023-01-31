@@ -8,7 +8,7 @@ function DesignWorkLists() {
   const { showWorks, currentPage } = useContext(DesignContext);
 
   return (
-    <div className="relative flex justify-center pt-16 pb-8 text-white">
+    <div className="relative flex justify-center text-white">
       {showWorks.map((page, index) => (
         <div
           className={index === currentPage - 1 ? "block" : "hidden"}

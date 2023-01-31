@@ -30,8 +30,6 @@ function Pagination({ showWorks, setCurrentPage }) {
       return;
     }
 
-    console.log("t");
-
     if (e.key === "Right" || e.key === "ArrowRight") {
       nextPage();
     } else if (e.key === "Left" || e.key === "ArrowLeft") {

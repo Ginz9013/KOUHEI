@@ -13,8 +13,14 @@ import Spinner from "../components/Spinner";
 function DesignWorks() {
   const [loading, setLoading] = useState(true);
 
-  const { setWorks, showWorks, setShowWorks, setCurrentPage, worksSlicePages } =
-    useContext(DesignContext);
+  const {
+    setWorks,
+    showWorks,
+    setShowWorks,
+    setCurrentPage,
+    worksSlicePages,
+    modalActive,
+  } = useContext(DesignContext);
 
   useEffect(() => {
     const fetchWorks = async () => {
@@ -50,10 +56,14 @@ function DesignWorks() {
       {loading ? (
         <Spinner />
       ) : (
-        <div className="h-full w-full flex flex-col justify-between bg-secondary-black">
+        <div className="h-full w-full flex flex-col justify-between bg-secondary-black pb-8">
           <DesignNav />
           <DesignWorkLists />
-          <Pagination showWorks={showWorks} setCurrentPage={setCurrentPage} />
+          <Pagination
+            showWorks={showWorks}
+            setCurrentPage={setCurrentPage}
+            modalActive={modalActive}
+          />
         </div>
       )}
     </>

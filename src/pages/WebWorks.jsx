@@ -51,7 +51,7 @@ function WebWorks() {
       {loading ? (
         <Spinner />
       ) : (
-        <div className="h-full w-full flex flex-col justify-between bg-secondary-black">
+        <div className="h-full w-full flex flex-col justify-between bg-secondary-black pb-24">
           <WebNav />
           <WebWorkLists />
           <Pagination showWorks={showWorks} setCurrentPage={setCurrentPage} />

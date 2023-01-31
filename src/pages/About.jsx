@@ -5,7 +5,7 @@ function About() {
     <div className="w-full h-full flex flex-col justify-center items-center text-white bg-secondary-black px-48">
       <div className="flex">
         {/* Person & Experience */}
-        <div className="w-2/5 mr-16">
+        <div className="w-2/5 mr-32">
           {/* Person */}
           <div className="mb-16">
             <h2 className="text-5xl mb-8">
@@ -25,15 +25,15 @@ function About() {
             <h2 className="text-5xl mb-8">Experience</h2>
             <ul>
               <li className="flex items-center mb-2">
-                <div className="w-3 h-3 bg-primary-blue mr-2"></div>
+                <div className="w-2 h-2 bg-primary-blue mr-2"></div>
                 <p className="text-lg">敬喆實業股份有限公司 - 設計</p>
               </li>
               <li className="flex items-center mb-2">
-                <div className="w-3 h-3 bg-primary-blue mr-2"></div>
+                <div className="w-2 h-2 bg-primary-blue mr-2"></div>
                 <p className="text-lg">日商飛龍文具股份有限公司 - 設計</p>
               </li>
               <li className="flex items-center mb-2">
-                <div className="w-3 h-3 bg-primary-blue mr-2"></div>
+                <div className="w-2 h-2 bg-primary-blue mr-2"></div>
                 <p className="text-lg">HowTrue 好初手作烘焙 - 品牌負責人</p>
               </li>
             </ul>
@@ -43,13 +43,13 @@ function About() {
         {/* Skills */}
         <div className="w-96">
           <h2 className="text-5xl mb-8">Skills</h2>
-          <ul className="text-3xl">
+          <ul className="text-2xl mr-12">
             <li className="border border-primary-blue py-2">
               <h3 className="w-36 text-center ">HTML</h3>
             </li>
             <li className="flex items-center border border-primary-blue py-2">
               <h3 className="w-36 text-center">CSS</h3>
-              <ul className="text-xl ml-4">
+              <ul className="text-xl mx-4">
                 <li className="font-bold text-primary-blue">Tailwindcss</li>
                 <li className="inline mr-4">Bootstrap</li>
                 <li className="inline">SASS</li>

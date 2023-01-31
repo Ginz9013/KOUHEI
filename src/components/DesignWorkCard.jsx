@@ -1,11 +1,14 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { ReactComponent as ArrowRight } from "../assets/ArrowRight.svg";
 import { ReactComponent as CloseIcon } from "../assets/CloseIcon.svg";
+
 import PropTypes from "prop-types";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import { gsap } from "gsap";
 
 function DesignWorkCard({ work: { name, imgCover, imgContent } }) {
   const [showModal, setShowModal] = useState(false);
+  const designCard = useRef(null);
 
   const modalToggle = (e) => {
     if (e.target.id === "modalBackground") {
@@ -13,12 +16,28 @@ function DesignWorkCard({ work: { name, imgCover, imgContent } }) {
     }
   };
 
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      // Scroll down tag
+      gsap.to("#scroll", {
+        y: 10,
+        yoyo: true,
+        duration: 1,
+        repeat: -1,
+      });
+    }, designCard);
+
+    return () => {
+      ctx.revert();
+    };
+  }, []);
+
   return (
-    <div>
+    <div ref={designCard}>
       {/* Small Card */}
       <button
         type="button"
-        className="w-56 h-56 bg-gray-300"
+        className="w-56 h-56 rounded-sm overflow-hidden"
         onClick={() => setShowModal(true)}
       >
         <img src={imgCover} alt="cover" className="w-full h-full" />
@@ -48,14 +67,17 @@ function DesignWorkCard({ work: { name, imgCover, imgContent } }) {
               </div>
 
               {/* Modal Content */}
-              <div className="flex flex-col overflow-auto top-0 w-full h-full p-4 bg-white z-10">
+              <div className="flex flex-col overflow-auto top-0 w-full h-full p-4 bg-gray-100 z-10 rounded-md">
                 {imgContent.map((img, index) => (
                   <img src={img} key={index} className="my-2"></img>
                 ))}
               </div>
 
               {/* Scroll down tags */}
-              <div className="absolute right-0 bottom-0 translate-x-16 translate-y-n40 flex rotate-90">
+              <div
+                id="scroll"
+                className="scroll absolute right-0 bottom-10 translate-x-16 flex rotate-90"
+              >
                 <p className="mr-2">scroll down</p>
                 <ArrowRight width={8} />
               </div>
