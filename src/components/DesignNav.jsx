@@ -4,16 +4,19 @@ import DesignContext from "../context/DesignContext";
 import { useContext } from "react";
 
 function DesignNav() {
-  const { works, worksSlicePages, setShowWorks } = useContext(DesignContext);
+  const { works, worksSlicePages, setShowWorks, setCurrentPage } =
+    useContext(DesignContext);
 
   const filterTag = (tag) => {
     if (tag === "all") {
       const workPageList = worksSlicePages(works);
       setShowWorks(workPageList);
+      setCurrentPage(1);
     } else {
       const tagWorks = works.filter((work) => work.tags.includes(tag));
       const workPageList = worksSlicePages(tagWorks);
       setShowWorks(workPageList);
+      setCurrentPage(1);
     }
   };
 

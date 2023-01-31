@@ -2,23 +2,39 @@
 import PropTypes from "prop-types";
 
 function Pagination({ showWorks, setCurrentPage }) {
+  const nextPage = () => {
+    setCurrentPage((prev) => {
+      if (prev === showWorks.length) {
+        return prev;
+      } else {
+        return prev + 1;
+      }
+    });
+  };
+
+  const prevPage = () => {
+    setCurrentPage((prev) => {
+      if (prev === 1) {
+        return prev;
+      } else {
+        return prev - 1;
+      }
+    });
+  };
+
+  document.addEventListener("keyup", (e) => {
+    if (e.key === "Right" || e.key === "ArrowRight") {
+      nextPage();
+    } else if (e.key === "Left" || e.key === "ArrowLeft") {
+      prevPage();
+    }
+  });
+
   return (
     <div className="text-white">
       <ul className="w-80vw h-16 flex justify-center">
         <li>
-          <button
-            type="button"
-            className="mx-2"
-            onClick={() =>
-              setCurrentPage((prev) => {
-                if (prev === 1) {
-                  return prev;
-                } else {
-                  return prev - 1;
-                }
-              })
-            }
-          >
+          <button type="button" className="mx-2" onClick={prevPage}>
             ◀︎
           </button>
         </li>
@@ -35,19 +51,7 @@ function Pagination({ showWorks, setCurrentPage }) {
         ))}
 
         <li>
-          <button
-            type="button"
-            className="mx-2"
-            onClick={() => {
-              setCurrentPage((prev) => {
-                if (prev === showWorks.length) {
-                  return prev;
-                } else {
-                  return prev + 1;
-                }
-              });
-            }}
-          >
+          <button type="button" className="mx-2" onClick={nextPage}>
             ▶︎
           </button>
         </li>
