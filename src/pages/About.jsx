@@ -30,7 +30,7 @@ function About() {
               </li>
               <li className="flex items-center mb-2">
                 <div className="w-2 h-2 bg-primary-blue mr-2"></div>
-                <p className="text-lg">日商飛龍文具股份有限公司 - 設計</p>
+                <p className="text-lg">日商飛龍文具股份有限公司 - 設計/企劃</p>
               </li>
               <li className="flex items-center mb-2">
                 <div className="w-2 h-2 bg-primary-blue mr-2"></div>

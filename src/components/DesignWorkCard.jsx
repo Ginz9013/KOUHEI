@@ -16,11 +16,51 @@ function DesignWorkCard({ work: { name, imgCover, imgContent } }) {
     }
   };
 
+  // Modal Effect
   useEffect(() => {
+    if (!showModal) {
+      return;
+    }
+
     let ctx = gsap.context(() => {
+      // Modal open effect
+      gsap.from(".gsap-modalBg", {
+        opacity: 0,
+        duration: 1,
+        delay: 0.2,
+      });
+      gsap.from(".gsap-modal", {
+        delay: 0.3,
+        opacity: 0,
+        height: 0,
+        duration: 0.4,
+        ease: "circ.inOut",
+      });
+
+      // Title effect
+      gsap.from(".gsap-title", {
+        x: 20,
+        opacity: 0,
+        duration: 1,
+        delay: 1,
+        ease: "power2.inOut",
+      });
+
+      // Close icon effect
+      gsap.from(".gsap-close", {
+        opacity: 0,
+        duration: 1.5,
+        ease: "power4.in",
+      });
+
       // Scroll down tag
-      gsap.to("#scroll", {
-        y: 10,
+      gsap.from(".gsap-scroll", {
+        opacity: 0,
+        duration: 0.5,
+        delay: 1,
+      });
+      gsap.to(".gsap-scroll", {
+        y: -15,
         yoyo: true,
         duration: 1,
         repeat: -1,
@@ -30,7 +70,7 @@ function DesignWorkCard({ work: { name, imgCover, imgContent } }) {
     return () => {
       ctx.revert();
     };
-  }, []);
+  }, [showModal]);
 
   return (
     <div ref={designCard}>
@@ -48,7 +88,7 @@ function DesignWorkCard({ work: { name, imgCover, imgContent } }) {
         <>
           {/* Modal */}
           <div
-            className="fixed top-0 left-0 w-screen h-screen z-30 flex justify-center items-center"
+            className="gsap-modalBg fixed top-0 left-0 w-screen h-screen z-30 flex justify-center items-center"
             id="modalBackground"
             onClick={(e) => modalToggle(e)}
           >
@@ -56,10 +96,11 @@ function DesignWorkCard({ work: { name, imgCover, imgContent } }) {
             <div className="relative flex flex-col top-0 w-1/2 max-h-4/5 bg-white">
               {/* Modal Content Title */}
               <div className="absolute top-0 left-0 translate-y-n40 w-full flex justify-between items-center font-bold text-lg">
-                <h2>{name}</h2>
+                <h2 className="gsap-title">{name}</h2>
+                {/* Close Icon */}
                 <button
                   type="button"
-                  className="p-1 hover:rotate-90 hover:scale-110 duration-500"
+                  className="gsap-close p-1 hover:rotate-90 hover:scale-110 duration-500"
                   onClick={() => setShowModal(false)}
                 >
                   <CloseIcon width={12} />
@@ -67,17 +108,14 @@ function DesignWorkCard({ work: { name, imgCover, imgContent } }) {
               </div>
 
               {/* Modal Content */}
-              <div className="flex flex-col overflow-auto top-0 w-full h-full p-4 bg-gray-100 z-10 rounded-md">
+              <div className="gsap-modal flex flex-col overflow-auto top-0 w-full h-full p-4 bg-gray-100 z-10 rounded-md">
                 {imgContent.map((img, index) => (
                   <img src={img} key={index} className="my-2"></img>
                 ))}
               </div>
 
               {/* Scroll down tags */}
-              <div
-                id="scroll"
-                className="scroll absolute right-0 bottom-10 translate-x-16 flex rotate-90"
-              >
+              <div className="gsap-scroll absolute right-0 bottom-8 translate-x-16 flex rotate-90">
                 <p className="mr-2">scroll down</p>
                 <ArrowRight width={8} />
               </div>
