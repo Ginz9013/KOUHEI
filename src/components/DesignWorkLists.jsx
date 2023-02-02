@@ -1,17 +1,35 @@
 /* eslint-disable react/react-in-jsx-scope */
-import { useContext } from "react";
+import { useContext, useRef, useEffect } from "react";
 import DesignContext from "../context/DesignContext";
+import { gsap } from "gsap";
 
 import DesignWorkCard from "./DesignWorkCard";
+import {} from "react";
 
 function DesignWorkLists() {
   const { showWorks, currentPage } = useContext(DesignContext);
+  const list = useRef(null);
+
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      // Show Page
+      gsap.from(".gsap-current", {
+        opacity: 0,
+        duration: 0.5,
+        ease: "power2.inOut",
+      });
+    }, list);
+
+    return () => {
+      ctx.revert();
+    };
+  }, [showWorks, currentPage]);
 
   return (
-    <div className="relative flex justify-center text-white">
+    <div ref={list} className="relative flex justify-center text-white">
       {showWorks.map((page, index) => (
         <div
-          className={index === currentPage - 1 ? "block" : "hidden"}
+          className={index === currentPage - 1 ? "gsap-current" : "hidden"}
           key={index}
         >
           <ul className="grid grid-cols-4 grid-rows-3 gap-4">

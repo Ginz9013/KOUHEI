@@ -16,6 +16,12 @@ function DesignWorkCard({ work: { name, imgCover, imgContent } }) {
     }
   };
 
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      setShowModal(false);
+    }
+  });
+
   // Modal Effect
   useEffect(() => {
     if (!showModal) {
@@ -77,9 +83,10 @@ function DesignWorkCard({ work: { name, imgCover, imgContent } }) {
       {/* Small Card */}
       <button
         type="button"
-        className="w-56 h-56 rounded-sm overflow-hidden"
+        className="relative group w-56 h-56 rounded-sm overflow-hidden hover:scale-105 duration-300"
         onClick={() => setShowModal(true)}
       >
+        {/* <div className="absolute right-1/2 bottom-1/2 translate-x-1/2 translate-y-1/2 rounded-full w-4 h-4 opacity-0 bg-black group-hover:h-96 group-hover:w-96 group-hover:opacity-80 duration-500"></div> */}
         <img src={imgCover} alt="cover" className="w-full h-full" />
       </button>
       <p>{name}</p>

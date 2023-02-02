@@ -45,7 +45,7 @@ function Pagination({ showWorks, currentPage, setCurrentPage, pageColor }) {
 
   return (
     <div className="text-white">
-      <ul className="w-80vw h-16 flex justify-center items-center">
+      <ul className="w-80vw h-16 font-bold flex justify-center items-center">
         <li>
           <button
             type="button"
