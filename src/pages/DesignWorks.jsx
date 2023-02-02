@@ -17,6 +17,7 @@ function DesignWorks() {
     setWorks,
     showWorks,
     setShowWorks,
+    currentPage,
     setCurrentPage,
     worksSlicePages,
     modalActive,
@@ -56,13 +57,15 @@ function DesignWorks() {
       {loading ? (
         <Spinner />
       ) : (
-        <div className="h-full w-full flex flex-col justify-between bg-secondary-black pb-8">
+        <div className="h-full w-full flex flex-col justify-between bg-secondary-black pb-12">
           <DesignNav />
           <DesignWorkLists />
           <Pagination
             showWorks={showWorks}
+            currentPage={currentPage}
             setCurrentPage={setCurrentPage}
             modalActive={modalActive}
+            pageColor="yellow"
           />
         </div>
       )}

@@ -13,8 +13,14 @@ import Spinner from "../components/Spinner";
 function WebWorks() {
   const [loading, setLoading] = useState(true);
 
-  const { setWorks, showWorks, setShowWorks, setCurrentPage, worksSlicePages } =
-    useContext(WebContext);
+  const {
+    setWorks,
+    showWorks,
+    currentPage,
+    setShowWorks,
+    setCurrentPage,
+    worksSlicePages,
+  } = useContext(WebContext);
 
   useEffect(() => {
     const fetchWorks = async () => {
@@ -51,10 +57,15 @@ function WebWorks() {
       {loading ? (
         <Spinner />
       ) : (
-        <div className="h-full w-full flex flex-col justify-between bg-secondary-black pb-24">
+        <div className="h-full w-full flex flex-col justify-between bg-secondary-black pb-32">
           <WebNav />
           <WebWorkLists />
-          <Pagination showWorks={showWorks} setCurrentPage={setCurrentPage} />
+          <Pagination
+            showWorks={showWorks}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            pageColor="blue"
+          />
         </div>
       )}
     </>
