@@ -141,9 +141,9 @@ function WebWorkCard({
                 {/* Link */}
                 <ul className="flex justify-end">
                   {infoUrl.website && (
-                    <li className="relative overflow-hidden group">
+                    <li>
                       <a
-                        href={infoUrl.Website}
+                        href={infoUrl.website}
                         target="_blank"
                         className="w-24 h-24 bg-primary-yellow flex flex-col justify-center items-center text-white hover:cursor-pointer"
                         rel="noreferrer"
@@ -156,7 +156,7 @@ function WebWorkCard({
                   {infoUrl.github && (
                     <li>
                       <a
-                        href={infoUrl.Github_Repo}
+                        href={infoUrl.github}
                         target="_blank"
                         className="w-24 h-24 bg-primary-blue flex flex-col justify-center items-center text-white hover:cursor-pointer"
                         rel="noreferrer"
