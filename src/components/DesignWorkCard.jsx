@@ -30,10 +30,15 @@ function DesignWorkCard({ work: { name, imgCover, imgContent } }) {
 
     let ctx = gsap.context(() => {
       // Modal open effect
-      gsap.from(".gsap-modalBg", {
+      gsap.from(".gsap-modalWrap", {
         opacity: 0,
         duration: 1,
         delay: 0.2,
+      });
+      gsap.from(".gsap-modalBg", {
+        opacity: 0,
+        duration: 0.5,
+        ease: "power2.out",
       });
       gsap.from(".gsap-modal", {
         delay: 0.3,
@@ -95,7 +100,7 @@ function DesignWorkCard({ work: { name, imgCover, imgContent } }) {
         <>
           {/* Modal */}
           <div
-            className="gsap-modalBg fixed top-0 left-0 w-screen h-screen z-30 flex justify-center items-center"
+            className="gsap-modalWrap fixed top-0 left-0 w-screen h-screen z-30 flex justify-center items-center"
             id="modalBackground"
             onClick={(e) => modalToggle(e)}
           >
@@ -130,7 +135,7 @@ function DesignWorkCard({ work: { name, imgCover, imgContent } }) {
           </div>
 
           {/* Black Background */}
-          <div className="fixed top-0 left-0  w-screen h-screen bg-primary-black opacity-80 z-20"></div>
+          <div className="gsap-modalBg fixed top-0 left-0  w-screen h-screen bg-primary-black opacity-80 z-20"></div>
         </>
       )}
     </div>
