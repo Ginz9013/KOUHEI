@@ -100,7 +100,7 @@ function WebWorkCard({
             id="modalBackground"
           >
             {/* Modal Content */}
-            <div className="gsap-modal relative top-0 w-2/3 max-h-4/5 rounded-md bg-white z-10 p-8 grid grid-cols-2 gap-6">
+            <div className="gsap-modal relative top-0 max-w-3xl max-h-4/5 rounded-md bg-white z-10 p-8 grid grid-cols-2 gap-6">
               {/* close Icon */}
               <button
                 className="gsap-close absolute top-4 right-4 p-1 hover:cursor-pointer hover:rotate-90 duration-500"
@@ -141,28 +141,29 @@ function WebWorkCard({
                 {/* Link */}
                 <ul className="flex justify-end">
                   {infoUrl.website && (
-                    <li>
+                    <li className="group [transform:translateZ(0)] w-24 px-4 py-3 mx-1 rounded-md overflow-hidden bg-primary-yellow relative before:absolute before:bg-black before:top-1/2 before:left-1/2 before:h-8 before:w-8 before:-translate-y-1/2 before:-translate-x-1/2 before:rounded-full before:scale-[0] before:opacity-0 hover:before:scale-[8] hover:before:opacity-20 before:transition before:ease-in-out before:duration-500 active:scale-95 duration-200">
                       <a
                         href={infoUrl.website}
                         target="_blank"
-                        className="w-24 h-24 bg-primary-yellow flex flex-col justify-center items-center text-white hover:cursor-pointer"
                         rel="noreferrer"
+                        className="relative z-0 text-white text-center group-hover:text-gray-200 transition ease-in-out duration-500"
                       >
-                        <WebsiteIcon width={32} className="mb-1" />
-                        Website
+                        <WebsiteIcon width={32} className="mb-1 mx-auto" />
+                        <span className="block mx-auto">Website</span>
                       </a>
                     </li>
                   )}
                   {infoUrl.github && (
-                    <li>
+                    <li className="group [transform:translateZ(0)] w-24 px-4 py-3 mx-1 rounded-md overflow-hidden bg-primary-blue relative before:absolute before:bg-black before:top-1/2 before:left-1/2 before:h-8 before:w-8 before:-translate-y-1/2 before:-translate-x-1/2 before:rounded-full before:scale-[0] before:opacity-0 hover:before:scale-[8] hover:before:opacity-20 before:transition before:ease-in-out before:duration-500 active:scale-95 duration-200">
                       <a
                         href={infoUrl.github}
                         target="_blank"
-                        className="w-24 h-24 bg-primary-blue flex flex-col justify-center items-center text-white hover:cursor-pointer"
+                        className="relative z-0 text-white text-center group-hover:text-gray-200 transition ease-in-out duration-500"
                         rel="noreferrer"
                       >
-                        <GithubIcon width={32} className="mb-1" />
-                        Github
+                        <GithubIcon width={32} className="mb-1 mx-auto" />
+
+                        <span className="block mx-auto">Github</span>
                       </a>
                     </li>
                   )}
