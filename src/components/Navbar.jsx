@@ -16,7 +16,7 @@ function Navbar() {
   };
 
   return (
-    <div className="flex flex-col justify-between w-full h-full px-12 pt-20 pb-56 bg-primary-black">
+    <div className="flex flex-col justify-between w-full h-full px-8 xl:px-12 pt-20 pb-56 bg-primary-black">
       <Link to="/">
         <LogoIcon
           width={85}
@@ -24,7 +24,7 @@ function Navbar() {
         />
       </Link>
       <ul className="flex flex-col justify-between h-40 text-neutral-500 font-bold">
-        <li>
+        <li className="mb-6 lg:mb-0">
           <Link
             to="/DesignWorks"
             className="flex hover:scale-105 active:scale-95 duration-200"
@@ -42,7 +42,7 @@ function Navbar() {
             </span>
           </Link>
         </li>
-        <li>
+        <li className="mb-6 lg:mb-0">
           <Link
             to="/WebWorks"
             className="flex hover:scale-105 active:scale-95 duration-200"
@@ -58,7 +58,7 @@ function Navbar() {
             </span>
           </Link>
         </li>
-        <li>
+        <li className="mb-6 lg:mb-0">
           <Link
             to="/About"
             className="flex hover:scale-105 active:scale-95 duration-200"
@@ -74,7 +74,7 @@ function Navbar() {
             </span>
           </Link>
         </li>
-        <li>
+        <li className="mb-6 lg:mb-0">
           <Link
             to="/ContactMe"
             className="flex hover:scale-105 active:scale-95 duration-200"

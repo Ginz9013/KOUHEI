@@ -33,7 +33,7 @@ function DesignWorkCard({ work: { name, imgCover, imgContent } }) {
       gsap.from(".gsap-modalWrap", {
         opacity: 0,
         duration: 1,
-        delay: 0.2,
+        delay: 0.4,
       });
       gsap.from(".gsap-modalBg", {
         opacity: 0,
@@ -88,7 +88,7 @@ function DesignWorkCard({ work: { name, imgCover, imgContent } }) {
       {/* Small Card */}
       <button
         type="button"
-        className="relative group w-56 h-56 rounded-sm overflow-hidden hover:scale-105 duration-300"
+        className="relative group w-36 h-36 xl:w-56 xl:h-56 rounded-sm overflow-hidden hover:scale-105 duration-300"
         onClick={() => setShowModal(true)}
       >
         {/* <div className="absolute right-1/2 bottom-1/2 translate-x-1/2 translate-y-1/2 rounded-full w-4 h-4 opacity-0 bg-black group-hover:h-96 group-hover:w-96 group-hover:opacity-80 duration-500"></div> */}

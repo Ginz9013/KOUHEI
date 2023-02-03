@@ -97,8 +97,8 @@ function ContactMe() {
   };
 
   return (
-    <div className="w-full h-full bg-secondary-black pt-16 md:pt-28 xl:pt-48">
-      <div className="flex flex-col items-center">
+    <div className="w-full h-full bg-secondary-black flex justify-center items-center">
+      <div className="flex flex-col items-center w-5/6">
         <h1 className="text-white text-3xl mb-6">Contact Me</h1>
         <form className="text-white w-5/6 md:w-2/3 xl:w-1/2">
           <div className="flex mx-4 my-8">
@@ -108,7 +108,7 @@ function ContactMe() {
                 type="text"
                 id="username"
                 name="username"
-                className="peer bg-transparent h-10 w-full rounded-sm text-gray-200 placeholder-transparent ring-2 px-2 pr-8 ring-gray-500 focus:ring-primary-blue focus:outline-none focus:border-rose-600"
+                className="peer bg-transparent h-10 w-full rounded-md text-gray-200 placeholder-transparent px-2 pr-8 border-gray-500 focus:border-primary-blue focus:outline-none border-2"
                 placeholder="Type inside me"
                 onChange={(e) =>
                   setFormData((prev) => ({ ...prev, name: e.target.value }))
@@ -133,7 +133,7 @@ function ContactMe() {
                 type="email"
                 id="email"
                 name="email"
-                className="peer bg-transparent h-10 w-full rounded-sm text-gray-200 placeholder-transparent ring-2 px-2 ring-gray-500 focus:ring-primary-blue focus:outline-none focus:border-rose-600"
+                className="peer bg-transparent h-10 w-full rounded-md text-gray-200 placeholder-transparent px-2 pr-8 border-gray-500 focus:border-primary-blue focus:outline-none border-2"
                 placeholder="Type inside me"
                 onChange={(e) =>
                   setFormData((prev) => ({ ...prev, email: e.target.value }))
@@ -159,7 +159,7 @@ function ContactMe() {
               type="text"
               id="subject"
               name="subject"
-              className="peer bg-transparent h-10 w-full rounded-sm text-gray-200 placeholder-transparent ring-2 px-2 ring-gray-500 focus:ring-primary-blue focus:outline-none focus:border-rose-600"
+              className="peer bg-transparent h-10 w-full rounded-md text-gray-200 placeholder-transparent px-2 pr-8 border-gray-500 focus:border-primary-blue focus:outline-none border-2"
               placeholder="Type inside me"
               onChange={(e) =>
                 setFormData((prev) => ({ ...prev, subject: e.target.value }))
@@ -184,7 +184,7 @@ function ContactMe() {
               type="text"
               id="message"
               name="message"
-              className="peer bg-transparent h-36 w-full rounded-sm text-gray-200 placeholder-transparent ring-2 px-2 ring-gray-500 focus:ring-primary-blue focus:outline-none focus:border-rose-600"
+              className="peer bg-transparent h-36 w-full rounded-md text-gray-200 placeholder-transparent border-2 px-2 border-gray-500 focus:border-primary-blue focus:outline-none"
               placeholder="Type inside me"
               onChange={(e) =>
                 setFormData((prev) => ({ ...prev, message: e.target.value }))

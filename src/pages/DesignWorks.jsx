@@ -57,7 +57,7 @@ function DesignWorks() {
       {loading ? (
         <Spinner />
       ) : (
-        <div className="h-full w-full flex flex-col justify-between bg-secondary-black pb-12">
+        <div className="h-full w-full flex flex-col bg-secondary-black">
           <DesignNav />
           <DesignWorkLists />
           <Pagination

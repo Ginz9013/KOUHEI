@@ -26,13 +26,13 @@ function DesignWorkLists() {
   }, [showWorks, currentPage]);
 
   return (
-    <div ref={list} className="relative flex justify-center text-white">
+    <div ref={list} className="relative flex justify-center text-white my-8">
       {showWorks.map((page, index) => (
         <div
           className={index === currentPage - 1 ? "gsap-current" : "hidden"}
           key={index}
         >
-          <ul className="grid grid-cols-4 grid-rows-3 gap-4">
+          <ul className="grid grid-cols-3 lg:grid-cols-4 grid-rows-4 lg:grid-rows-3 gap-1 xl:gap-4">
             {page.map((work) => (
               <li key={work.name}>
                 <DesignWorkCard work={work} />

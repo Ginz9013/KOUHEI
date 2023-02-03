@@ -81,11 +81,11 @@ function WebWorkCard({
       {/* Small Card */}
       <button
         type="button"
-        className="w-120 h-40 border border-slate-500 rounded-md overflow-hidden flex hover:scale-105 duration-300"
+        className="w-80 h-21 xl:w-96 xl:h-30 2xl:w-120 2xl:h-40 border border-slate-500 rounded-md overflow-hidden flex hover:scale-105 duration-300"
         onClick={() => setShowModal(true)}
       >
         <img src={imgCover} className="w-40 h-40 shrink-0" alt="cover" />
-        <div className="px-6 pt-10 text-left">
+        <div className="px-6 pt-4 xl:pt-10 text-left">
           <h2 className="text-xl mb-2">{name}</h2>
           <p className="text-sm text-gray-400">{describe}</p>
         </div>
