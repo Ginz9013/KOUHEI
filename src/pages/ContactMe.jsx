@@ -1,6 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope */
 import emailjs from "emailjs-com";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 function ContactMe() {
   const [formData, setFormData] = useState({
@@ -96,19 +96,40 @@ function ContactMe() {
     validate();
   };
 
+  // RWD
+  // Setting Mobile Height
+  const contactPage = useRef(null);
+  const modalPage = useRef(null);
+  const modalBackground = useRef(null);
+  const setHeight = () => {
+    const currentHeight = window.innerHeight;
+    contactPage.current.style.height = `${currentHeight}px`;
+    if (checkModal) {
+      modalPage.current.style.height = `${currentHeight}px`;
+      modalBackground.current.style.height = `${currentHeight}px`;
+    }
+  };
+  useEffect(setHeight, [checkModal]);
+
+  // RWD - Send Button
+  const currentWidth = window.innerWidth;
+
   return (
-    <div className="w-full h-full bg-secondary-black flex justify-center items-center">
+    <div
+      ref={contactPage}
+      className="w-screen md:w-full md:h-full bg-secondary-black flex justify-center items-center pt-16 md:pt-0"
+    >
       <div className="flex flex-col items-center w-5/6">
-        <h1 className="text-white text-3xl mb-6">Contact Me</h1>
+        <h1 className="text-white text-3xl mb-0 md:mb-6">Contact Me</h1>
         <form className="text-white w-5/6 md:w-2/3 xl:w-1/2">
-          <div className="flex mx-4 my-8">
+          <div className="flex flex-col md:flex-row mx-4 my-8">
             {/* Name */}
-            <div className="relative bg-secondary-black mr-4">
+            <div className="relative bg-secondary-black mr-4 w-full md:w-fit mb-8 md:mb-0">
               <input
                 type="text"
                 id="username"
                 name="username"
-                className="peer bg-transparent h-10 w-full rounded-md text-gray-200 placeholder-transparent px-2 pr-8 border-gray-500 focus:border-primary-blue focus:outline-none border-2"
+                className="peer bg-transparent h-10 w-full rounded-md text-gray-200 placeholder-transparent px-2 border-gray-500 focus:border-primary-blue focus:outline-none border-2"
                 placeholder="Type inside me"
                 onChange={(e) =>
                   setFormData((prev) => ({ ...prev, name: e.target.value }))
@@ -206,10 +227,20 @@ function ContactMe() {
           {/* Submit Button */}
           <div className="w-full flex justify-center">
             <button
-              className="group [transform:translateZ(0)] w-48 px-6 py-3 m-4 rounded-lg overflow-hidden bg-gray-200 relative before:absolute before:bg-primary-blue before:top-1/2 before:left-1/2 before:h-8 before:w-8 before:-translate-y-1/2 before:-translate-x-1/2 before:rounded-full before:scale-[0] before:opacity-0 hover:before:scale-[8] hover:before:opacity-100 before:transition before:ease-in-out before:duration-500"
+              className={
+                currentWidth < 768
+                  ? "w-48 px-6 py-3 m-4 rounded-lg bg-gray-200 active:scale-95"
+                  : "group [transform:translateZ(0)] w-48 px-6 py-3 m-4 rounded-lg overflow-hidden bg-gray-200 relative before:absolute before:bg-primary-blue before:top-1/2 before:left-1/2 before:h-8 before:w-8 before:-translate-y-1/2 before:-translate-x-1/2 before:rounded-full before:scale-[0] before:opacity-0 hover:before:scale-[8] hover:before:opacity-100 before:transition before:ease-in-out before:duration-500"
+              }
               onClick={(e) => submit(e)}
             >
-              <span className="relative z-0 text-black group-hover:text-gray-200 transition ease-in-out duration-500">
+              <span
+                className={
+                  currentWidth < 768
+                    ? "text-black"
+                    : "relative z-0 text-black group-hover:text-gray-200 transition ease-in-out duration-500"
+                }
+              >
                 Send
               </span>
             </button>
@@ -218,7 +249,10 @@ function ContactMe() {
       </div>
 
       {checkModal && (
-        <div className="w-screen h-screen fixed left-0 top-0 flex flex-col justify-center items-center drop-shadow-sm z-20">
+        <div
+          ref={modalPage}
+          className="w-screen md:h-screen fixed left-0 top-0 flex flex-col justify-center items-center drop-shadow-sm z-20"
+        >
           {/* Content */}
           <div className="flex flex-col items-center text-white bg-secondary-light p-8 z-10 rounded-sm">
             <h3 className="text-2xl">Mail has been sent.</h3>
@@ -231,7 +265,10 @@ function ContactMe() {
             />
           </div>
           {/* Black Background */}
-          <div className="w-screen h-screen bg-black opacity-80 absolute"></div>
+          <div
+            ref={modalBackground}
+            className="w-screen md:h-screen bg-black opacity-80 absolute"
+          ></div>
         </div>
       )}
     </div>
