@@ -1,6 +1,5 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { TextPlugin } from "gsap/TextPlugin";
 
 import { useEffect, useRef } from "react";
@@ -8,7 +7,7 @@ import { useEffect, useRef } from "react";
 import { ReactComponent as Logo } from "../assets/logo.svg";
 import { ReactComponent as ArrowRight } from "../assets/ArrowRight.svg";
 
-gsap.registerPlugin(ScrollTrigger, TextPlugin);
+gsap.registerPlugin(TextPlugin);
 
 function Home() {
   const home = useRef(null);

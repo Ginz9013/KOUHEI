@@ -12,15 +12,24 @@ export const DesignProvider = ({ children }) => {
   const worksSlicePages = (works) => {
     const workList = [];
 
-    const pages = Math.ceil(works.length / 12);
-
-    for (let i = 1; i <= pages; i++) {
+    // Mobile Setting
+    if (window.innerWidth < 768) {
       workList.push([]);
-      works.forEach((work, index) => {
-        if (index / 12 >= i - 1 && index / 12 < i) {
-          workList[i - 1].push(work);
-        }
+      works.forEach((work) => {
+        workList[0].push(work);
       });
+    } else {
+      // Pad & PC Setting
+      const pages = Math.ceil(works.length / 12);
+
+      for (let i = 1; i <= pages; i++) {
+        workList.push([]);
+        works.forEach((work, index) => {
+          if (index / 12 >= i - 1 && index / 12 < i) {
+            workList[i - 1].push(work);
+          }
+        });
+      }
     }
 
     return workList;

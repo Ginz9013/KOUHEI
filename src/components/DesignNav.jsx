@@ -1,8 +1,7 @@
 /* eslint-disable react/react-in-jsx-scope */
 
 import DesignContext from "../context/DesignContext";
-import { useContext } from "react";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 function DesignNav() {
   const { works, worksSlicePages, setShowWorks, setCurrentPage } =
@@ -23,13 +22,13 @@ function DesignNav() {
   };
 
   return (
-    <div className="h-20 flex justify-start items-end px-12 bg-primary-yellow text-primary-black">
+    <div className="fixed top-[74px] md:static w-screen md:w-full h-14 md:h-20 flex justify-start items-center md:items-end px-12 bg-primary-yellow text-primary-black z-20">
       <div>
         <button
           className={
             tag === "all"
-              ? "py-2 px-6 hover:cursor-pointer relative before:absolute before:bg-secondary-black before:bottom-0 before:left-1/2 before:h-full before:w-full before:-translate-x-1/2 before:rounded-t"
-              : "py-2 px-6 hover:cursor-pointer relative before:absolute before:bg-black before:bottom-1 before:left-1/2 before:h-1 before:w-full  before:-translate-x-1/2 before:scale-[0] before:opacity-0 hover:before:scale-100 hover:before:opacity-100 before:transition before:ease-in-out before:duration-500"
+              ? "py-1 md:py-2 px-4 md:px-6 hover:cursor-pointer relative before:absolute before:bg-secondary-black before:bottom-0 before:left-1/2 before:h-full before:w-full before:-translate-x-1/2 before:rounded md:before:rounded-b-none"
+              : "py-1 md:py-2 px-4 md:px-6 hover:cursor-pointer relative before:absolute before:bg-black before:bottom-1 before:left-1/2 before:h-1 before:w-full  before:-translate-x-1/2 before:scale-[0] before:opacity-0 hover:before:scale-100 hover:before:opacity-100 before:transition before:ease-in-out before:duration-500"
           }
           onClick={() => {
             filterTag("all");
@@ -43,8 +42,8 @@ function DesignNav() {
         <button
           className={
             tag === "brand"
-              ? "py-2 px-6 hover:cursor-pointer relative before:absolute before:bg-secondary-black before:bottom-0 before:left-1/2 before:h-full before:w-full before:-translate-x-1/2 before:rounded-t"
-              : "py-2 px-6 hover:cursor-pointer relative before:absolute before:bg-black before:bottom-1 before:left-1/2 before:h-1 before:w-full  before:-translate-x-1/2 before:scale-[0] before:opacity-0 hover:before:scale-100 hover:before:opacity-100 before:transition before:ease-in-out before:duration-500"
+              ? "py-1 md:py-2 px-4 md:px-6 hover:cursor-pointer relative before:absolute before:bg-secondary-black before:bottom-0 before:left-1/2 before:h-full before:w-full before:-translate-x-1/2 before:rounded md:before:rounded-b-none"
+              : "py-1 md:py-2 px-4 md:px-6 hover:cursor-pointer relative before:absolute before:bg-black before:bottom-1 before:left-1/2 before:h-1 before:w-full  before:-translate-x-1/2 before:scale-[0] before:opacity-0 hover:before:scale-100 hover:before:opacity-100 before:transition before:ease-in-out before:duration-500"
           }
           onClick={() => {
             filterTag("brand");
@@ -60,8 +59,8 @@ function DesignNav() {
         <button
           className={
             tag === "package"
-              ? "py-2 px-6 hover:cursor-pointer relative before:absolute before:bg-secondary-black before:bottom-0 before:left-1/2 before:h-full before:w-full before:-translate-x-1/2 before:rounded-t"
-              : "py-2 px-6 hover:cursor-pointer relative before:absolute before:bg-black before:bottom-1 before:left-1/2 before:h-1 before:w-full  before:-translate-x-1/2 before:scale-[0] before:opacity-0 hover:before:scale-100 hover:before:opacity-100 before:transition before:ease-in-out before:duration-500"
+              ? "py-1 md:py-2 px-4 md:px-6 hover:cursor-pointer relative before:absolute before:bg-secondary-black before:bottom-0 before:left-1/2 before:h-full before:w-full before:-translate-x-1/2 before:rounded md:before:rounded-b-none"
+              : "py-1 md:py-2 px-4 md:px-6 hover:cursor-pointer relative before:absolute before:bg-black before:bottom-1 before:left-1/2 before:h-1 before:w-full  before:-translate-x-1/2 before:scale-[0] before:opacity-0 hover:before:scale-100 hover:before:opacity-100 before:transition before:ease-in-out before:duration-500"
           }
           onClick={() => {
             filterTag("package");
@@ -77,8 +76,8 @@ function DesignNav() {
         <button
           className={
             tag === "others"
-              ? "py-2 px-6 hover:cursor-pointer relative before:absolute before:bg-secondary-black before:bottom-0 before:left-1/2 before:h-full before:w-full before:-translate-x-1/2 before:rounded-t"
-              : "py-2 px-6 hover:cursor-pointer relative before:absolute before:bg-black before:bottom-1 before:left-1/2 before:h-1 before:w-full  before:-translate-x-1/2 before:scale-[0] before:opacity-0 hover:before:scale-100 hover:before:opacity-100 before:transition before:ease-in-out before:duration-500"
+              ? "py-1 md:py-2 px-4 md:px-6 hover:cursor-pointer relative before:absolute before:bg-secondary-black before:bottom-0 before:left-1/2 before:h-full before:w-full before:-translate-x-1/2 before:rounded md:before:rounded-b-none"
+              : "py-1 md:py-2 px-4 md:px-6 hover:cursor-pointer relative before:absolute before:bg-black before:bottom-1 before:left-1/2 before:h-1 before:w-full  before:-translate-x-1/2 before:scale-[0] before:opacity-0 hover:before:scale-100 hover:before:opacity-100 before:transition before:ease-in-out before:duration-500"
           }
           onClick={() => {
             filterTag("others");

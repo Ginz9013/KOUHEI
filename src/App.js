@@ -15,7 +15,7 @@ import { WebProvider } from "./context/WebContext";
 function App() {
   return (
     <Router>
-      <header className="fixed md:absolute w-screen md:h-screen md:w-20vw z-10">
+      <header className="fixed md:absolute w-screen md:h-screen md:w-20vw z-30">
         <Navbar />
       </header>
       <main className="absolute md:left-20vw md:w-80vw md:h-screen md:overflow-hidden">

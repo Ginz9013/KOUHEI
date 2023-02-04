@@ -100,12 +100,12 @@ function DesignWorkCard({ work: { name, imgCover, imgContent } }) {
         <>
           {/* Modal */}
           <div
-            className="gsap-modalWrap fixed top-0 left-0 w-screen h-screen z-30 flex justify-center items-center"
+            className="gsap-modalWrap fixed top-0 left-0 w-screen h-screen z-50 flex justify-center items-center"
             id="modalBackground"
             onClick={(e) => modalToggle(e)}
           >
             {/* Modal Content Area */}
-            <div className="relative flex flex-col top-0 w-1/2 max-h-4/5 bg-white">
+            <div className="relative flex flex-col top-0 w-3/4 md:w-2/3 lg:w-1/2 max-h-4/5 bg-white">
               {/* Modal Content Title */}
               <div className="absolute top-0 left-0 translate-y-n40 w-full flex justify-between items-center font-bold text-lg">
                 <h2 className="gsap-title">{name}</h2>
@@ -135,7 +135,7 @@ function DesignWorkCard({ work: { name, imgCover, imgContent } }) {
           </div>
 
           {/* Black Background */}
-          <div className="gsap-modalBg fixed top-0 left-0  w-screen h-screen bg-primary-black opacity-80 z-20"></div>
+          <div className="gsap-modalBg fixed top-0 left-0  w-screen h-screen bg-primary-black opacity-80 z-40"></div>
         </>
       )}
     </div>

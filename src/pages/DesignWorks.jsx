@@ -60,13 +60,15 @@ function DesignWorks() {
         <div className="h-full w-full flex flex-col bg-secondary-black">
           <DesignNav />
           <DesignWorkLists />
-          <Pagination
-            showWorks={showWorks}
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
-            modalActive={modalActive}
-            pageColor="yellow"
-          />
+          {window.innerWidth >= 768 && (
+            <Pagination
+              showWorks={showWorks}
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+              modalActive={modalActive}
+              pageColor="yellow"
+            />
+          )}
         </div>
       )}
     </>
