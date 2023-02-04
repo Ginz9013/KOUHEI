@@ -2,10 +2,10 @@
 
 function About() {
   return (
-    <div className="w-full h-full flex flex-col justify-center items-center text-white bg-secondary-black px-48">
+    <div className="w-screen md:w-full md:h-full flex flex-col justify-center items-center text-white bg-secondary-black py-32 md:py-0 md:px-48">
       <div className="flex flex-col lg:flex-row">
         {/* Person & Experience */}
-        <div className="w-96 mr-8 2xl:mr-32 mb-8">
+        <div className="w-80 md:w-96 mx-auto md:mx-0 md:mr-8 2xl:mr-32 mb-8">
           {/* Person */}
           <div className="mb-16">
             <h2 className="text-3xl mb-8">
@@ -41,7 +41,7 @@ function About() {
         </div>
 
         {/* Skills */}
-        <div className="w-96">
+        <div className="w-80 md:w-96 mx-auto md:mx-0">
           <h2 className="text-3xl mb-8">Skills</h2>
           <ul className="text-xl mr-12">
             <li className="border border-primary-blue py-2">

@@ -19,7 +19,6 @@ function Home() {
   const setHeight = () => {
     const currentHeight = window.innerHeight;
     home.current.style.height = `${currentHeight}px`;
-    console.log(`home height: ${currentHeight}`);
   };
   useEffect(setHeight, []);
 
