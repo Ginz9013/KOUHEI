@@ -1,11 +1,11 @@
 /* eslint-disable react/react-in-jsx-scope */
+import { ReactComponent as Logo } from "../assets/logo.svg";
+// import { ReactComponent as ArrowRight } from "../assets/ArrowRight.svg";
+import Clock from "../components/Clock";
+
 import { gsap } from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
-
 import { useEffect, useRef } from "react";
-
-import { ReactComponent as Logo } from "../assets/logo.svg";
-import { ReactComponent as ArrowRight } from "../assets/ArrowRight.svg";
 
 gsap.registerPlugin(TextPlugin);
 
@@ -44,19 +44,19 @@ function Home() {
           duration: 4,
           delay: 0.7,
         })
-        .to("#scroll", {
+        .to("#clock", {
           opacity: 1,
           duration: 1.5,
           ease: "Power2.easeInOut",
         });
 
       // Scroll down tag
-      gsap.to("#scroll", {
-        y: 20,
-        yoyo: true,
-        duration: 1,
-        repeat: -1,
-      });
+      // gsap.to("#scroll", {
+      //   y: 20,
+      //   yoyo: true,
+      //   duration: 1,
+      //   repeat: -1,
+      // });
     }, home);
 
     return () => {
@@ -68,7 +68,7 @@ function Home() {
     <>
       <div
         ref={home}
-        className="absolute md:left-n20vw w-screen flex flex-col justify-center items-center text-white"
+        className="absolute md:left-n20vw w-screen flex flex-col justify-center items-center text-white bg-primary-black"
       >
         <div>
           <h1 id="title">
@@ -86,6 +86,16 @@ function Home() {
         </div>
 
         <div
+          id="clock"
+          className="absolute right-0 bottom-20 flex rotate-90 opacity-0"
+        >
+          <Clock />
+        </div>
+      </div>
+      <div className="w-screen h-screen absolute bottom-full bg-primary-yellow"></div>
+
+      {/* Scroll Down Icon */}
+      {/* <div
           id="scroll"
           className="absolute right-0 bottom-20 flex rotate-90 opacity-0"
         >
@@ -93,7 +103,7 @@ function Home() {
           <ArrowRight width={8} />
         </div>
       </div>
-      <div className="w-screen h-screen absolute bottom-full bg-primary-yellow"></div>
+      <div className="w-screen h-screen absolute bottom-full bg-primary-yellow"></div> */}
     </>
   );
 }

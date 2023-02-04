@@ -60,12 +60,14 @@ function WebWorks() {
         <div className="h-full w-full flex flex-col justify-between bg-secondary-black pb-32">
           <WebNav />
           <WebWorkLists />
-          <Pagination
-            showWorks={showWorks}
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
-            pageColor="blue"
-          />
+          {window.innerWidth >= 768 && (
+            <Pagination
+              showWorks={showWorks}
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+              pageColor="blue"
+            />
+          )}
         </div>
       )}
     </>

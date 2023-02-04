@@ -25,14 +25,14 @@ function WebWorkLists() {
   return (
     <div
       ref={list}
-      className="grow flex justify-center items-center text-white"
+      className="w-screen md:w-full grow flex justify-center items-center text-white pt-40 md:pt-0"
     >
       {showWorks.map((page, index) => (
         <div
           key={index}
           className={index === currentPage - 1 ? "gsap-current" : "hidden"}
         >
-          <ul className="grid grid-cols-2 grid-rows-3 gap-6">
+          <ul className="grid md:grid-cols-2 md:grid-rows-3 gap-6">
             {page.map((work) => (
               <li key={work.name}>
                 <WebWorkCard work={work} />

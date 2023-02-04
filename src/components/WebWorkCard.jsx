@@ -1,7 +1,7 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { ReactComponent as GithubIcon } from "../assets/GithubIcon.svg";
 import { ReactComponent as WebsiteIcon } from "../assets/WebsiteIcon.svg";
-import { ReactComponent as CloseIcon } from "../assets/CloseIcon2.svg";
+import { ReactComponent as CloseIcon2 } from "../assets/CloseIcon2.svg";
 
 import PropTypes from "prop-types";
 import { useState, useRef, useEffect } from "react";
@@ -100,17 +100,20 @@ function WebWorkCard({
             id="modalBackground"
           >
             {/* Modal Content */}
-            <div className="gsap-modal relative top-0 max-w-3xl max-h-4/5 rounded-md bg-white z-10 p-8 grid grid-cols-2 gap-6">
+            <div className="gsap-modal relative top-0 w-3/4 md:max-w-3xl max-h-4/5 rounded-md bg-white z-10 p-4 md:p-8 grid md:grid-cols-2 gap-6">
               {/* close Icon */}
               <button
-                className="gsap-close absolute top-4 right-4 p-1 hover:cursor-pointer hover:rotate-90 duration-500"
+                className="gsap-close absolute top-[-40px] md:top-4 right-4 p-1 hover:cursor-pointer hover:rotate-90 duration-500"
                 onClick={() => setShowModal(false)}
               >
-                <CloseIcon width={24} />
+                <CloseIcon2
+                  width={24}
+                  className="hidden md:block md:text-primary-black"
+                />
               </button>
 
               {/* Img Area */}
-              <div className="flex justify-center items-center overflow-hidden">
+              <div className="flex justify-center items-center overflow-hidden max-h-56 md:max-h-[500px]">
                 <img src={imgContent} alt={name} />
               </div>
 

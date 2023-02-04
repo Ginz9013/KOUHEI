@@ -20,14 +20,14 @@ function WebNav() {
 
   return (
     <div>
-      <div className="h-20 flex justify-start items-end px-12 bg-primary-blue text-primary-black">
+      <div className="fixed top-[74px] md:static w-screen md:w-full h-14 md:h-20 flex justify-start items-center md:items-end px-12 bg-primary-blue text-primary-black z-20">
         <div>
           {/* TAG - All */}
           <button
             className={
               tag === "all"
-                ? "py-2 px-6 hover:cursor-pointer relative before:absolute before:bg-secondary-black before:bottom-0 before:left-1/2 before:h-full before:w-full before:-translate-x-1/2 before:rounded-t"
-                : "py-2 px-6 hover:cursor-pointer relative before:absolute before:bg-black before:bottom-1 before:left-1/2 before:h-1 before:w-full  before:-translate-x-1/2 before:scale-[0] before:opacity-0 hover:before:scale-100 hover:before:opacity-100 before:transition before:ease-in-out before:duration-500"
+                ? "py-1 md:py-2 px-4 md:px-6 hover:cursor-pointer relative before:absolute before:bg-secondary-black before:bottom-0 before:left-1/2 before:h-full before:w-full before:-translate-x-1/2 before:rounded md:before:rounded-b-none"
+                : "py-1 md:py-2 px-4 md:px-6 hover:cursor-pointer relative before:absolute before:bg-black before:bottom-1 before:left-1/2 before:h-1 before:w-full  before:-translate-x-1/2 before:scale-[0] before:opacity-0 hover:before:scale-100 hover:before:opacity-100 before:transition before:ease-in-out before:duration-500"
             }
             onClick={() => {
               filterTag("all");
@@ -43,8 +43,8 @@ function WebNav() {
           <button
             className={
               tag === "project"
-                ? "py-2 px-6 hover:cursor-pointer relative before:absolute before:bg-secondary-black before:bottom-0 before:left-1/2 before:h-full before:w-full before:-translate-x-1/2 before:rounded-t"
-                : "py-2 px-6 hover:cursor-pointer relative before:absolute before:bg-black before:bottom-1 before:left-1/2 before:h-1 before:w-full  before:-translate-x-1/2 before:scale-[0] before:opacity-0 hover:before:scale-100 hover:before:opacity-100 before:transition before:ease-in-out before:duration-500"
+                ? "py-1 md:py-2 px-4 md:px-6 hover:cursor-pointer relative before:absolute before:bg-secondary-black before:bottom-0 before:left-1/2 before:h-full before:w-full before:-translate-x-1/2 before:rounded md:before:rounded-b-none"
+                : "py-1 md:py-2 px-4 md:px-6 hover:cursor-pointer relative before:absolute before:bg-black before:bottom-1 before:left-1/2 before:h-1 before:w-full  before:-translate-x-1/2 before:scale-[0] before:opacity-0 hover:before:scale-100 hover:before:opacity-100 before:transition before:ease-in-out before:duration-500"
             }
             onClick={() => {
               filterTag("project");
@@ -62,8 +62,8 @@ function WebNav() {
           <button
             className={
               tag === "practice"
-                ? "py-2 px-6 hover:cursor-pointer relative before:absolute before:bg-secondary-black before:bottom-0 before:left-1/2 before:h-full before:w-full before:-translate-x-1/2 before:rounded-t"
-                : "py-2 px-6 hover:cursor-pointer relative before:absolute before:bg-black before:bottom-1 before:left-1/2 before:h-1 before:w-full  before:-translate-x-1/2 before:scale-[0] before:opacity-0 hover:before:scale-100 hover:before:opacity-100 before:transition before:ease-in-out before:duration-500"
+                ? "py-1 md:py-2 px-4 md:px-6 hover:cursor-pointer relative before:absolute before:bg-secondary-black before:bottom-0 before:left-1/2 before:h-full before:w-full before:-translate-x-1/2 before:rounded md:before:rounded-b-none"
+                : "py-1 md:py-2 px-4 md:px-6 hover:cursor-pointer relative before:absolute before:bg-black before:bottom-1 before:left-1/2 before:h-1 before:w-full  before:-translate-x-1/2 before:scale-[0] before:opacity-0 hover:before:scale-100 hover:before:opacity-100 before:transition before:ease-in-out before:duration-500"
             }
             onClick={() => {
               filterTag("practice");
@@ -81,8 +81,8 @@ function WebNav() {
           <button
             className={
               tag === "ui"
-                ? "py-2 px-6 hover:cursor-pointer relative before:absolute before:bg-secondary-black before:bottom-0 before:left-1/2 before:h-full before:w-full before:-translate-x-1/2 before:rounded-t"
-                : "py-2 px-6 hover:cursor-pointer relative before:absolute before:bg-black before:bottom-1 before:left-1/2 before:h-1 before:w-full  before:-translate-x-1/2 before:scale-[0] before:opacity-0 hover:before:scale-100 hover:before:opacity-100 before:transition before:ease-in-out before:duration-500"
+                ? "py-1 md:py-2 px-4 md:px-6 hover:cursor-pointer relative before:absolute before:bg-secondary-black before:bottom-0 before:left-1/2 before:h-full before:w-full before:-translate-x-1/2 before:rounded md:before:rounded-b-none"
+                : "py-1 md:py-2 px-4 md:px-6 hover:cursor-pointer relative before:absolute before:bg-black before:bottom-1 before:left-1/2 before:h-1 before:w-full  before:-translate-x-1/2 before:scale-[0] before:opacity-0 hover:before:scale-100 hover:before:opacity-100 before:transition before:ease-in-out before:duration-500"
             }
             onClick={() => {
               filterTag("ui");

@@ -9,7 +9,8 @@ import { ReactComponent as BarIcon } from "../assets/BarIcon.svg";
 import { ReactComponent as ArrowRight } from "../assets/ArrowRight.svg";
 
 import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import { gsap } from "gsap";
 
 function Navbar() {
   const location = useLocation();
@@ -20,6 +21,29 @@ function Navbar() {
       return true;
     }
   };
+
+  // Mobile Slide Navbar Effect
+  const slideNav = useRef(null);
+  useEffect(() => {
+    if (!showSlideNav) {
+      return;
+    }
+
+    let ctx = gsap.context(() => {
+      // Show Navbar
+      gsap.from(".gsap-slideNavbar", {
+        x: 200,
+        duration: 0.3,
+      });
+      gsap.from(".gsap-slideNavBg", {
+        opacity: 0,
+        duration: 0.2,
+        ease: "power2.inOut",
+      });
+    }, slideNav);
+
+    return () => ctx.revert();
+  }, [showSlideNav]);
 
   return (
     <>
@@ -122,9 +146,12 @@ function Navbar() {
       </div>
       {/* Slide Nav */}
       {showSlideNav && (
-        <div className="md:hidden absolute top-0 right-0 w-screen h-screen z-30">
+        <div
+          ref={slideNav}
+          className="md:hidden absolute top-0 right-0 w-screen h-screen z-30"
+        >
           {/* NavBar */}
-          <div className="absolute right-0 h-screen p-8 bg-secondary-black flex flex-col justify-between z-10">
+          <div className="gsap-slideNavbar absolute right-0 h-screen p-8 bg-secondary-black flex flex-col justify-between z-10">
             <div className="flex justify-end">
               <button
                 className="px-1 active:scale-90 duration-200"
@@ -221,7 +248,10 @@ function Navbar() {
           </div>
 
           {/* Dark Background */}
-          <div className="w-screen h-screen bg-primary-black opacity-80"></div>
+          <div
+            className="gsap-slideNavBg w-screen h-screen bg-primary-black opacity-80"
+            onClick={() => setShowSlideNav(false)}
+          ></div>
         </div>
       )}
     </>
