@@ -13,7 +13,17 @@ gsap.registerPlugin(ScrollTrigger, TextPlugin);
 function Home() {
   const home = useRef(null);
   const slogan = "Graphic Design & Front End Website Creator. ";
+  const windowWidth = window.innerWidth;
 
+  // Setting Mobile Height
+  const setHeight = () => {
+    const currentHeight = window.innerHeight;
+    home.current.style.height = `${currentHeight}px`;
+    console.log(`home height: ${currentHeight}`);
+  };
+  useEffect(setHeight, []);
+
+  // GSAP Effect
   useEffect(() => {
     let ctx = gsap.context(() => {
       let tl = gsap.timeline();
@@ -60,11 +70,11 @@ function Home() {
     <>
       <div
         ref={home}
-        className="absolute left-n20vw w-screen h-screen flex flex-col justify-center items-center text-white"
+        className="absolute md:left-n20vw w-screen flex flex-col justify-center items-center text-white"
       >
         <div>
           <h1 id="title">
-            <Logo width={400} />
+            <Logo width={windowWidth < 768 ? 300 : 400} />
           </h1>
           <br />
           <div className="w-40 h-20 wrap">
