@@ -20,7 +20,6 @@ function DesignWorks() {
     currentPage,
     setCurrentPage,
     worksSlicePages,
-    modalActive,
   } = useContext(DesignContext);
 
   useEffect(() => {
@@ -65,7 +64,6 @@ function DesignWorks() {
               showWorks={showWorks}
               currentPage={currentPage}
               setCurrentPage={setCurrentPage}
-              modalActive={modalActive}
               pageColor="yellow"
             />
           )}
